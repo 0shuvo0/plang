@@ -1,7 +1,7 @@
 const Lexer = require("./lexer.js")
 const Parser = require("./parser.js")
-
-const codes = `5.38 * 7378
+const Interpreter = require("./interpreter")
+const codes = `1 + 1 - 10 
 `
 
 function run(codes){
@@ -13,8 +13,11 @@ function run(codes){
     }
     
     let parser = new Parser(tokens)
+    let ast = parser.run()
+    console.log(ast)
 
-    console.log(parser.run())
+    let interpreter = new Interpreter()
+    interpreter.visit(ast)
 }
 
 run(codes)

@@ -10,6 +10,7 @@ const TT_MUL = "MUL"
 const TT_DIV = "DIV"
 const TT_LPAREN = "LPAREN"
 const TT_RPAREN = "RPAREN"
+const TT_EOF = "EOF"
 
 
 
@@ -111,6 +112,7 @@ class Lexer{
                 break
             }
         }
+        tokens.push(TT_EOF)
         return { tokens, error }
     }
 }
